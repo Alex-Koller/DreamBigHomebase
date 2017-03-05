@@ -1,0 +1,106 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://universal-helix-789.appspot.com/_ah/api",
+  "name" : "news",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://universal-helix-789.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "news.postNews" : {
+      "path" : "postNews",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.dreambig.homebase.endpoint.NewsEndpoint.postNews",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "NewsItem" : {
+        "id" : "NewsItem",
+        "type" : "object",
+        "properties" : {
+          "newsId" : {
+            "type" : "string"
+          },
+          "createdBy" : {
+            "type" : "string"
+          },
+          "createdForUserId" : {
+            "type" : "string"
+          },
+          "subjectId" : {
+            "type" : "string"
+          },
+          "subjectTitle" : {
+            "type" : "string"
+          },
+          "newsType" : {
+            "$ref" : "NewsType"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "additionalValue" : {
+            "type" : "string"
+          },
+          "createdOn" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "NewsType" : {
+        "id" : "NewsType",
+        "type" : "string",
+        "enum" : [ "INVITED_TO_ACTIVITY", "ACTIVITY_CANCELLED", "NEW_COMMENT", "NEW_WHEN_SUGGESTION", "NEW_WHERE_SUGGESTION", "ACTIVITY_TITLE_EDITED", "ACTIVITY_DESCRIPTION_EDITED", "ACTIVITY_TIME_EDITED", "ACTIVITY_PLACE_EDITED", "ACTIVITY_TYPE_EDITED" ]
+      },
+      "CallResult" : {
+        "id" : "CallResult",
+        "type" : "object",
+        "properties" : {
+          "resultCode" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.dreambig.homebase.endpoint.NewsEndpoint.postNews" : {
+        "request" : {
+          "$ref" : "NewsItem"
+        },
+        "response" : {
+          "$ref" : "CallResult"
+        }
+      }
+    }
+  }
+}

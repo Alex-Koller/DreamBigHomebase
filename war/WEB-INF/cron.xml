@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/admin/push/feedbackservice/process</url>
+    <description>Query APNS Feedback service and remove inactive devices</description>
+    <schedule>every 4 hours</schedule>
+  </cron>  
+  <cron>
+    <url>/admin/passwordclaim/cleanup</url>
+    <description>Clean up the password claim objects</description>
+    <schedule>every 24 hours</schedule>
+  </cron>    
+</cronentries>

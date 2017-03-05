@@ -1,0 +1,11 @@
+<!-- Indices written at Sun, 1 Mar 2015 17:35:12 GMT -->
+
+<datastore-indexes>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="PasswordClaim" ancestor="false" source="auto">
+        <property name="passwordClaimStatus" direction="asc"/>
+        <property name="lastUpdate" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

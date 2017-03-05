@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <servlet>
+        <servlet-name>SystemServiceServlet</servlet-name>
+        <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+        <init-param>
+            <param-name>services</param-name>
+            <param-value>com.dreambig.homebase.endpoint.AndroidDeviceEndpoint,com.dreambig.homebase.endpoint.IosDeviceEndpoint,com.dreambig.homebase.endpoint.NewsEndpoint</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SystemServiceServlet</servlet-name>
+        <url-pattern>/_ah/spi/*</url-pattern>
+    </servlet-mapping>  
+  
+  <servlet>
+    <servlet-name>DeviceCleanupServlet</servlet-name>
+    <servlet-class>com.dreambig.homebase.iosapn.DeviceCleanupServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeviceCleanupServlet</servlet-name>
+    <url-pattern>/admin/push/device/cleanup</url-pattern>
+  </servlet-mapping>  
+  
+  <!-- Regular clean up start -->
+  
+  <servlet>
+    <servlet-name>PasswordClaimCleanupServlet</servlet-name>
+    <servlet-class>com.dreambig.homebase.common.PasswordClaimCleanupServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PasswordClaimCleanupServlet</servlet-name>
+    <url-pattern>/admin/passwordclaim/cleanup</url-pattern>
+  </servlet-mapping>   
+  
+  <servlet>
+    <servlet-name>PushFeedbackProcessingServlet</servlet-name>
+    <servlet-class>com.dreambig.homebase.iosapn.PushFeedbackProcessingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PushFeedbackProcessingServlet</servlet-name>
+    <url-pattern>/admin/push/feedbackservice/process</url-pattern>
+  </servlet-mapping> 
+  
+  <!-- Regular clean up end -->
+  
+  <servlet>
+    <servlet-name>PushNotificationWorkerServlet</servlet-name>
+    <servlet-class>com.dreambig.homebase.iosapn.PushNotificationWorkerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PushNotificationWorkerServlet</servlet-name>
+    <url-pattern>/admin/push/notifications/deliver</url-pattern>
+  </servlet-mapping>   
+  
+  <!-- Android Part Start -->
+  <servlet>
+    <servlet-name>GCMNotificationWorkerServlet</servlet-name>
+    <servlet-class>com.dreambig.homebase.gcm.GCMNotificationWorkerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GCMNotificationWorkerServlet</servlet-name>
+    <url-pattern>/admin/gcm/notifications/deliver</url-pattern>
+  </servlet-mapping>   
+  <!-- Android Part End -->
+  
+  <!-- Password Claim Start -->
+  <servlet>
+    <servlet-name>PasswordClaimTextWorkerServlet</servlet-name>
+    <servlet-class>com.dreambig.homebase.common.PasswordClaimTextWorkerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PasswordClaimTextWorkerServlet</servlet-name>
+    <url-pattern>/admin/passwordclaim/textdeliver</url-pattern>
+  </servlet-mapping>   
+  <!-- Password Claim End -->
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

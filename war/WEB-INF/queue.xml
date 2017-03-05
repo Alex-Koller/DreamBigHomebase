@@ -1,0 +1,23 @@
+<queue-entries>
+  <queue>
+    <name>notification-device-token-cleanup</name>
+    <rate>10/s</rate>
+    <bucket-size>20</bucket-size>
+    <target>default</target>
+  </queue>
+  <queue>
+    <name>notification-pass-to-ios-worker</name>
+    <rate>10/s</rate>
+    <bucket-size>20</bucket-size>
+  </queue>  
+  <queue>
+    <name>notification-pass-to-android-worker</name>
+    <rate>10/s</rate>
+    <bucket-size>20</bucket-size>
+  </queue>   
+  <queue>
+    <name>password-claim-text-out-worker</name>
+    <rate>10/s</rate>
+    <bucket-size>20</bucket-size>
+  </queue>    
+</queue-entries>
