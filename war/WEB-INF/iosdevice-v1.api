@@ -5,6 +5,7 @@
   "name" : "iosdevice",
   "version" : "v1",
   "defaultVersion" : false,
+  "discovery" : [ "PUBLIC" ],
   "adapter" : {
     "bns" : "https://universal-helix-789.appspot.com/_ah/spi",
     "deadline" : 65.0,
@@ -24,31 +25,6 @@
     "maxAge" : 0
   },
   "methods" : {
-    "iosdevice.getUserPasswordIOS" : {
-      "path" : "passwordclaimparcel/{claimId}/{claimCode}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.dreambig.homebase.endpoint.IosDeviceEndpoint.getUserPasswordIOS",
-      "request" : {
-        "parameters" : {
-          "claimId" : {
-            "type" : "int64",
-            "required" : true
-          },
-          "claimCode" : {
-            "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "iosdevice.registerDevice" : {
       "path" : "registerDevice/{userId}/{token}",
       "httpMethod" : "POST",
@@ -94,6 +70,31 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
+    },
+    "iosdevice.getUserPasswordIOS" : {
+      "path" : "passwordclaimparcel/{claimId}/{claimCode}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.dreambig.homebase.endpoint.IosDeviceEndpoint.getUserPasswordIOS",
+      "request" : {
+        "parameters" : {
+          "claimId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "claimCode" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
     }
   },
   "descriptor" : {
@@ -116,14 +117,14 @@
       }
     },
     "methods" : {
-      "com.dreambig.homebase.endpoint.IosDeviceEndpoint.getUserPasswordIOS" : {
+      "com.dreambig.homebase.endpoint.IosDeviceEndpoint.registerDevice" : {
+      },
+      "com.dreambig.homebase.endpoint.IosDeviceEndpoint.sendConfirmationTextIOS" : {
         "response" : {
           "$ref" : "PasswordClaimParcel"
         }
       },
-      "com.dreambig.homebase.endpoint.IosDeviceEndpoint.registerDevice" : {
-      },
-      "com.dreambig.homebase.endpoint.IosDeviceEndpoint.sendConfirmationTextIOS" : {
+      "com.dreambig.homebase.endpoint.IosDeviceEndpoint.getUserPasswordIOS" : {
         "response" : {
           "$ref" : "PasswordClaimParcel"
         }

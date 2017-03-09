@@ -5,6 +5,7 @@
   "name" : "androiddevice",
   "version" : "v1",
   "defaultVersion" : false,
+  "discovery" : [ "PUBLIC" ],
   "adapter" : {
     "bns" : "https://universal-helix-789.appspot.com/_ah/spi",
     "deadline" : 65.0,
@@ -49,6 +50,27 @@
         "body" : "empty"
       }
     },
+    "androiddevice.sendConfirmationTextAndroid" : {
+      "path" : "sendConfirmationTextAndroid/{phoneNumber}",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.dreambig.homebase.endpoint.AndroidDeviceEndpoint.sendConfirmationTextAndroid",
+      "request" : {
+        "parameters" : {
+          "phoneNumber" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "androiddevice.getUserPasswordAndroid" : {
       "path" : "passwordclaimparcel/{claimId}/{claimCode}",
       "httpMethod" : "GET",
@@ -64,27 +86,6 @@
             "required" : true
           },
           "claimCode" : {
-            "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "androiddevice.sendConfirmationTextAndroid" : {
-      "path" : "sendConfirmationTextAndroid/{phoneNumber}",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.dreambig.homebase.endpoint.AndroidDeviceEndpoint.sendConfirmationTextAndroid",
-      "request" : {
-        "parameters" : {
-          "phoneNumber" : {
             "type" : "string",
             "required" : true
           }
@@ -118,12 +119,12 @@
     "methods" : {
       "com.dreambig.homebase.endpoint.AndroidDeviceEndpoint.registerAndroidDevice" : {
       },
-      "com.dreambig.homebase.endpoint.AndroidDeviceEndpoint.getUserPasswordAndroid" : {
+      "com.dreambig.homebase.endpoint.AndroidDeviceEndpoint.sendConfirmationTextAndroid" : {
         "response" : {
           "$ref" : "PasswordClaimParcel"
         }
       },
-      "com.dreambig.homebase.endpoint.AndroidDeviceEndpoint.sendConfirmationTextAndroid" : {
+      "com.dreambig.homebase.endpoint.AndroidDeviceEndpoint.getUserPasswordAndroid" : {
         "response" : {
           "$ref" : "PasswordClaimParcel"
         }

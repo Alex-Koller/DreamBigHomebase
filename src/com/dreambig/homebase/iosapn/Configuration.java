@@ -19,7 +19,7 @@ public class Configuration {
 	  private static final String CERTTIFICATE_FILE_NAME = "apns-prod-cert.p12"; 
 	  static final boolean USE_PRODUCTION_APNS_SERVICE = true;
 	  
-	  static final String CERTIFICATE_PASSWORD = "chooselife";
+	  static final String CERTIFICATE_PASSWORD = "Ch00selife";
 	  private static byte[] certificateBytes = null;
 
 	  
